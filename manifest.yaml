@@ -1,0 +1,18 @@
+Descriptor:
+  Name: TextAnalyzerPlugin
+  DisplayName: Analizzatore di Testo
+  Description: Questo plugin analizza testo inviato dall'utente e restituisce statistiche e trasformazioni base.
+
+SkillGroups:
+  - Format: API
+    Skills:
+      - Name: AnalyzeText
+        DisplayName: Analizza Testo
+        Description: Analizza il testo ricevuto e fornisce versione in maiuscolo, numero parole e valutazione base.
+        Inputs:
+          - Name: text
+            Description: Il testo che l'utente desidera analizzare
+        Settings:
+          Endpoint: http://localhost:5000/analyze-text
+          Method: POST
+          Authentication: None

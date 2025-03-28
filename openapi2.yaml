@@ -5,7 +5,7 @@ info:
   description: |
     API endpoint for analyzing free-form text and returning word count, uppercase version, and simulated security check.
 servers:
-  - url: https://security-copilot-api.azurewebsites.net/analyze-text
+  - url: https://security-copilot-api.azurewebsites.net
 
 paths:
   /analyze-text:

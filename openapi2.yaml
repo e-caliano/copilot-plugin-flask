@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: Text Analyzer API
+  version: 1.0.0
+  description: |
+    API endpoint for analyzing free-form text and returning word count, uppercase version, and simulated security check.
+servers:
+  - url: https://copilot-plugin-flask.onrender.com
+
+paths:
+  /analyze-text:
+    post:
+      operationId: AnalyzeText
+      summary: Analizza un testo inviato
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+                - text
+      responses:
+        '200':
+          description: Risposta con dettagli sull'analisi
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  original_text:
+                    type: string
+                  word_count:
+                    type: integer
+                  uppercase_version:
+                    type: string
+                  security_analysis:
+                    type: string

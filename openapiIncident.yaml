@@ -1,41 +1,41 @@
 openapi: 3.0.0
 info:
   title: Incident Analyzer API
-  description:    Riceve un incidente in formato testuale da Security Copilot e restituisce un report generato.
+  description: Riceve un incidente in formato testuale da Security Copilot e restituisce un report generato.
   version: 1.0.0
 servers:
   - url: https://security-copilot-api.azurewebsites.net
 paths:
   /analyze-incident:
-  post:
-    operationId: AnalyzeIncidentStructured
-   summary: Analizza un incidente strutturato
-    requestBody:
-      required: false
-      content:
-        application/json:
-          schema:
-            type: string
-            properties:
-              incident_id:
-                type: string
-              incident_name:
-                type: string
-              incident_body:
-                type: string
-              follow_up_actions:
-                type: string
-            required:
-              - incident_id
-              - incident_name
-              - incident_body
-    responses:
-      '200':
-        description: Risposta con report generato
+    post:
+      operationId: AnalyzeIncidentStructured
+      summary: Analizza un incidente strutturato
+      requestBody:
+        required: false
         content:
           application/json:
             schema:
-              type: string
+              type: object
               properties:
-                report:
+                incident_id:
                   type: string
+                incident_name:
+                  type: string
+                incident_body:
+                  type: string
+                follow_up_actions:
+                  type: string
+              required:
+                - incident_id
+                - incident_name
+                - incident_body
+      responses:
+        '200':
+          description: Risposta con report generato
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  report:
+                    type: string

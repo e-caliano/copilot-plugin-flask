@@ -25,7 +25,7 @@ paths:
                   type: string
                 follow_up_actions:
                   type: string
-             required:
+              required:
                 - incident_id
                 - incident_name
                 - incident_body

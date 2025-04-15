@@ -11,16 +11,16 @@ paths:
   /analyze-incident:
   post:
     operationId: AnalyzeIncidentStructured
-    summary: Analizza un incidente strutturato
-    requestBody:
-      required: false
-      content:
-        application/json:
-          schema:
-            type: string
-            properties:
-              incident_id:
-                type: string
+  #  summary: Analizza un incidente strutturato
+  #  requestBody:
+   #   required: false
+   #   content:
+    #    application/json:
+     #     schema:
+      #      type: string
+       #     properties:
+        #      incident_id:
+         #       type: string
           #    incident_name:
            #     type: string
            #   incident_body:

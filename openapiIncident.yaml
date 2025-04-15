@@ -1,10 +1,8 @@
 openapi: 3.0.0
 info:
   title: Incident Analyzer API
+  description:    Riceve un incidente in formato testuale da Security Copilot e restituisce un report generato.
   version: 1.0.0
-  description: |
-    Riceve un incidente in formato testuale da Security Copilot e restituisce un report generato.
-
 servers:
   - url: https://security-copilot-api.azurewebsites.net
 paths:

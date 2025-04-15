@@ -31,13 +31,13 @@ paths:
            #   - incident_id
             #  - incident_name
             #  - incident_body
-    responses:
-      '200':
-        description: Risposta con report generato
-        content:
-          application/json:
-            schema:
-              type: string
-              properties:
-                report:
-                  type: string
+  #  responses:
+   #   '200':
+   #     description: Risposta con report generato
+  #      content:
+  #        application/json:
+  #          schema:
+  #            type: string
+  #            properties:
+  #              report:
+   #               type: string

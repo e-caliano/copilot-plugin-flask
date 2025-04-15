@@ -16,9 +16,9 @@ paths:
           application/json:
             schema:
               type: string
-             # properties:
-              #  incident_id:
-             #     type: string
+              properties:
+                incident_id:
+                  type: string
              #   incident_name:
              #     type: string
              #   incident_body:

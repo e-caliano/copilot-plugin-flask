@@ -6,8 +6,7 @@ info:
     Riceve un incidente in formato testuale da Security Copilot e restituisce un report generato.
 
 servers:
-  - url: https://security-copilot-api.azurewebsites.net
-
+  - url: https://github.com/e-caliano/copilot-plugin-flask/
 paths:
   /analyze-incident:
   post:

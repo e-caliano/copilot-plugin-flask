@@ -10,29 +10,35 @@ servers:
 
 paths:
   /analyze-incident:
-    post:
-      operationId: AnalyzeIncident
-      summary: Analizza un incidente di sicurezza inviato da Copilot
-      requestBody:
-        required: true
+  post:
+    operationId: AnalyzeIncidentStructured
+    summary: Analizza un incidente strutturato
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              incident_id:
+                type: string
+              incident_name:
+                type: string
+              incident_body:
+                type: string
+              follow_up_actions:
+                type: string
+            required:
+              - incident_id
+              - incident_name
+              - incident_body
+    responses:
+      '200':
+        description: Risposta con report generato
         content:
           application/json:
             schema:
               type: object
               properties:
-                incident:
+                report:
                   type: string
-                  description: Testo strutturato contenente i dati dell'incidente
-              required:
-                - incident
-      responses:
-        '200':
-          description: Report generato dall'incidente
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  report:
-                    type: string
-

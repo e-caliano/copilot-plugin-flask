@@ -14,7 +14,7 @@ paths:
     operationId: AnalyzeIncidentStructured
     summary: Analizza un incidente strutturato
     requestBody:
-      required: true
+      required: false
       content:
         application/json:
           schema:

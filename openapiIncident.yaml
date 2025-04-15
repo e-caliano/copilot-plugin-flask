@@ -15,7 +15,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
+              type: string
               properties:
                 incident_id:
                   type: string

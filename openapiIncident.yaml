@@ -6,14 +6,14 @@ info:
     Riceve un incidente in formato testuale da Security Copilot e restituisce un report generato.
 
 servers:
-  - url: https://github.com/e-caliano/copilot-plugin-flask/
+  - url: https://security-copilot-api.azurewebsites.net
 paths:
   /analyze-incident:
   post:
     operationId: AnalyzeIncidentStructured
     summary: Analizza un incidente strutturato
     requestBody:
-      required: false
+      required: true
       content:
         application/json:
           schema:
@@ -21,16 +21,16 @@ paths:
             properties:
               incident_id:
                 type: string
-              incident_name:
-                type: string
-              incident_body:
-                type: string
-              follow_up_actions:
-                type: string
+          #    incident_name:
+           #     type: string
+           #   incident_body:
+           #     type: string
+           #   follow_up_actions:
+           #     type: string
             required:
               - incident_id
-              - incident_name
-              - incident_body
+            #  - incident_name
+            #  - incident_body
     responses:
       '200':
         description: Risposta con report generato

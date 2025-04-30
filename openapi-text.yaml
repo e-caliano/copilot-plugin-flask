@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: Incident Analyzer API
+  description: Riceve un incidente in formato strutturato da Security Copilot e restituisce diverse modalità di report.
+  version: 1.0.0
+
+servers:
+  - url: https://security-copilot-api.azurewebsites.net
+
+paths:
+  /analyze-incident:
+    post:
+      operationId: AnalyzeIncidentStructured
+      summary: Analizza un incidente strutturato
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                incident_id:
+                  type: string
+                incident_name:
+                  type: string
+                incident_body:
+                  type: string
+                follow_up_actions:
+                  type: string
+              required:
+                - incident_id
+                - incident_name
+                - incident_body
+      responses:
+        '200':
+          description: Risposta con report generato
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  report:
+                    type: string
+
+  /analyzeincident/text:
+    post:
+      operationId: ExportIncidentAsText
+      summary: Restituisce il report come testo semplice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Incident'
+      responses:
+        '200':
+          description: Report generato in formato text/plain
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /analyzeincident/file:
+    post:
+      operationId: GenerateIncidentDownloadLink
+      summary: Restituisce un link per il download di un file contenente il report
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Incident'
+      responses:
+        '200':
+          description: Link per il download generato
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  download_link:
+                    type: string
+                  message:
+                    type: string
+
+components:
+  schemas:
+    Incident:
+      type: object
+      properties:
+        incident_id:
+          type: string
+        incident_name:
+          type: string
+        incident_body:
+          type: string
+        follow_up_actions:
+          type: string
+      required:
+        - incident_id
+        - incident_name
+        - incident_body
+        - follow_up_actions
